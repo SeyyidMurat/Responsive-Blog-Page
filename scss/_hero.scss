@@ -1,0 +1,35 @@
+.hero {
+  margin-bottom: 4rem;
+
+  &__grid {
+    display: grid;
+    gap: 1rem;
+
+    @include breakpoint-up(medium) {
+      grid-template-columns: max-content 1fr;
+      gap: 2rem;
+    }
+  }
+
+  &__img {
+    @include breakpoint-up(small) {
+      height: 300px;
+      width: 100%;
+      object-fit: cover;
+    }
+    @include breakpoint-up(medium) {
+      height: 250px;
+      width: auto;
+    }
+  }
+
+  &__content {
+    h1 {
+      font-size: clamp(1.5rem, 3vw, 2rem);
+    }
+    p {
+      color: #6c757d;
+      padding-right: 2.25rem;
+    }
+  }
+}

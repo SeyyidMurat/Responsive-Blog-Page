@@ -1,0 +1,75 @@
+header {
+  padding-top: 1rem;
+  padding-bottom: 2rem;
+  .nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    &__items {
+      @include breakpoint-down(small) {
+        opacity: 0;
+        visibility: hidden;
+        position: absolute;
+        inset: 0;
+        background: rgba(0, 0, 0, 0.5);
+      }
+
+      &.nav-show {
+        animation: fade-in 400ms ease-in-out forwards;
+      }
+
+      &.nav-hidden {
+        animation: fade-out 400ms ease-in-out forwards;
+      }
+    }
+
+    &__list {
+      /*max-width*/
+      @include breakpoint-down(small) {
+        position: relative;
+        top: 10%;
+        width: 90%;
+        margin: 0 auto;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 2rem;
+        background: #fff;
+        border-radius: 0.5rem;
+        padding: 1rem;
+      }
+
+      /*min-width*/
+      @include breakpoint-up(small) {
+        display: flex;
+      }
+    }
+
+    &__close-btn {
+      display: none;
+      padding: 0.5rem;
+      cursor: pointer;
+      @include breakpoint-down(small) {
+        align-self: flex-end;
+        font-size: 1.5rem;
+        display: block;
+      }
+    }
+
+    &__links {
+      color: #6c757d;
+      padding: 0.875rem;
+      transition: text-decoration 0.3s ease-in-out;
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+
+    &__toggle-btn {
+      @include breakpoint-up(small) {
+        display: none;
+      }
+    }
+  }
+}
